@@ -81,3 +81,7 @@
 	display:none;		
 }
 
+.tdi-view .documentModified,
+.tdi-view .documentAuthor {
+    display: none;
+}
