@@ -12,14 +12,18 @@ from lxml.cssselect import CSSSelector
 
 class Folder(BrowserView):
 
-    def getTabInformation(self):
+    @property
+    def tabObjs(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         props = getToolByName(self.context, 'portal_properties').vs_tdi
 
-        brains = self.context.getFolderContents(dict(portal_type=props.used_for_types, 
-                                                     sort_on='getObjPositionInParent'))
+        return self.context.getFolderContents(dict(portal_type=props.used_for_types, 
+                                                   sort_on='getObjPositionInParent'))
+
+    def getTabInformation(self):
+        """ Return information about contents to be tabified """
         result = list()
-        for brain in brains:
+        for brain in self.tabObjs:
             obj = brain.getObject()
             field = obj.getField('tabText')
             if field:
@@ -31,13 +35,11 @@ class Folder(BrowserView):
         return result
 
     def getTabs(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
-        props = getToolByName(self.context, 'portal_properties').vs_tdi
-
-        brains = self.context.getFolderContents(dict(portal_type=props.used_for_types, 
-                                                     sort_on='getObjPositionInParent'))
+        """ Return all relevant data for rendering all tabs
+            for all referenced documents.
+        """
         result = list()
-        for brain in brains:
+        for brain in self.tabObjs:
             # render HTML view of the content object and extract the body 
             obj = brain.getObject()
             layout = obj.getLayout()
@@ -63,3 +65,20 @@ class Folder(BrowserView):
                                uid=obj.UID(),
                                content=html))
         return result
+
+
+    def getHtml(self, uid):
+        """ Return the HTML body of a references document by its UID """
+        refcat = getToolByName(self.context, 'reference_catalog')
+        obj = refcat.lookupObject(uid)
+        layout = obj.getLayout()
+        html = getattr(obj, layout)()
+        if not isinstance(html, unicode):
+            html = unicode(html, 'utf-8')
+        root = lxml.html.fromstring(html)
+        selector = CSSSelector('#content')
+        nodes = selector(root)
+        if nodes:
+            return lxml.html.tostring(nodes[0], encoding=unicode)
+        return ''
+

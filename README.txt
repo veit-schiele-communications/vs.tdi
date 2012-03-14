@@ -1,11 +1,20 @@
-vs.tdi
-------
+vs.tdi  - Tabbed document interface
+-----------------------------------
 
-tdi = tabbed document interface.
+vs.tdi provides a supplementary views for folderish object (implementing
+IATFolder).  The new view provides a tabbed interface for accessing content
+inside the folder (supported content-types: Document, NewsItem, Event). The
+standard ``tdi_view`` retrieves all HTML to be rendered with one HTTP request.
+The ``tdi_ajax_view`` performs an ajax request upon each tab change.
 
-vs.tdi provides a supplementary view for folderish object (implementing IATFolder).
-The new view provides a tabbed interface for accessing content inside the folder
-(supported content-types: Document, NewsItem, Event).
+Requirements
+============
+- Plone 4
+
+Installation
+============
+The standard Plone installation procedure applies (add ``vs.tdi`` to your
+buildout configuration, re-run buildout and add install it within your Plone site).
 
 Licence
 =======
