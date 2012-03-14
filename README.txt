@@ -1,5 +1,5 @@
-vs.tdi  - Tabbed document interface
------------------------------------
+vs.tdi  - Tabbed document interface for Plone 4
+-----------------------------------------------
 
 vs.tdi provides a supplementary views for folderish object (implementing
 IATFolder).  The new view provides a tabbed interface for accessing content
