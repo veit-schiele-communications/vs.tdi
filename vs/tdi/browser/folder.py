@@ -12,8 +12,25 @@ from lxml.cssselect import CSSSelector
 
 class Folder(BrowserView):
 
-    def getTabs(self):
+    def getTabInformation(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        props = getToolByName(self.context, 'portal_properties').vs_tdi
 
+        brains = self.context.getFolderContents(dict(portal_type=props.used_for_types, 
+                                                     sort_on='getObjPositionInParent'))
+        result = list()
+        for brain in brains:
+            obj = brain.getObject()
+            field = obj.getField('tabText')
+            if field:
+                tabText = field.get(obj) or obj.Title()[:30]
+
+            result.append(dict(id=brain.getId,
+                               tabText=tabText,
+                               uid=obj.UID()))
+        return result
+
+    def getTabs(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         props = getToolByName(self.context, 'portal_properties').vs_tdi
 
@@ -43,5 +60,6 @@ class Folder(BrowserView):
 
             result.append(dict(id=brain.getId,
                                tabText=tabText,
+                               uid=obj.UID(),
                                content=html))
         return result
