@@ -21,7 +21,7 @@ long_description = (
     + '\n' +
     '\n')
 
-file('/tmp/xx.html', 'w').write(long_description)
+
 tests_require = ['zope.testing']
 
 setup(name='vs.tdi',
