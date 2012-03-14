@@ -9,11 +9,8 @@ from zope.component import adapts
 from Products.Archetypes import atapi
 from Products.ATContentTypes.interfaces import IATContentType, IATFile
 from Products.ATContentTypes import ATCTMessageFactory as _
-from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from archetypes.schemaextender.field import ExtensionField
-
-from ..config import SUBSIDIARY_LANGUAGES
 
 class StringField(ExtensionField, atapi.StringField):
     """ string field """
@@ -23,12 +20,14 @@ class All(object):
     implements(ISchemaExtender)
 
     fields = [StringField('tabText',
-                         default=''
+                         default='',
                          storage = atapi.AnnotationStorage(migrate=True),
                          widget=atapi.StringWidget(
+                            size=20,
+                            maxlength=20,
                             label=_(u'label_alternative_tab_text', u'Optional tab text'),
-                            ),  
-                         ),  
+                         )
+                    )
             ] 
 
     def __init__(self, context):

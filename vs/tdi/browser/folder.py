@@ -35,9 +35,13 @@ class Folder(BrowserView):
             if nodes:
                 html = lxml.html.tostring(nodes[0], encoding=unicode)
             else:
-                html = 'nothing found'
+                html = u''
+
+            field = obj.getField('tabText')
+            if field:
+                tabText = field.get(obj) or obj.Title()[:30]
 
             result.append(dict(id=brain.getId,
-                               tabText=brain.Title[:20],
+                               tabText=tabText,
                                content=html))
         return result
