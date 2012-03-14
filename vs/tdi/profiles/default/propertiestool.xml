@@ -5,6 +5,7 @@
   <property name="used_for_types" type="lines">
    <element value="Document"/>
    <element value="Event"/>
+   <element value="NewsItem"/>
   </property>
  </object>
 </object>

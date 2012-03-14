@@ -1,17 +1,19 @@
-.. contents::
+vs.tdi
+------
 
-.. Note!
-   -----
-   Update the following URLs to point to your:
+tdi = tabbed document interface.
 
-   - code repository
-   - bug tracker
-   - questions/comments feedback mail
-   (do not set a real mail, to avoid spams)
+vs.tdi provides a supplementary view for folderish object (implementing IATFolder).
+The new view provides a tabbed interface for accessing content inside the folder
+(supported content-types: Document, NewsItem, Event).
 
-   Or remove it if not used.
+Licence
+=======
+vs.tdi is published under the GNU Public Licence V2 (GPL 2)
 
-- Code repository: http://svn.somewhere.com/...
-- Questions and comments to somemailing_list
-- Report bugs at http://bug.somewhere.com/..
+Author
+======
+Veit Schiele communications GmbH
+Andreas Jung, ZOPYX Ltd.
+
 
