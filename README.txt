@@ -20,9 +20,15 @@ Licence
 =======
 vs.tdi is published under the GNU Public Licence V2 (GPL 2)
 
-Author
-======
-Veit Schiele communications GmbH
-Andreas Jung, ZOPYX Ltd.
+Authors
+=======
 
-
+| Andreas Jung
+| ZOPYX Ltd.
+| info@zopyx.com
+| www.zopyx.com
+|
+| Veit Schiele
+| Veit Schiele communications GmbH
+| kontakt@veit-schiele.de
+| www.veit-schiele.de

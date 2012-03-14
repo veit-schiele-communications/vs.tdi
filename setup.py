@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.1'
+version = '0.1.0'
 
 long_description = (
     read('README.txt')
@@ -42,6 +42,9 @@ setup(name='vs.tdi',
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         'Framework :: Plone',
+        'Framework :: Plone :: 4.0',
+        'Framework :: Plone :: 4.1',
+        'Framework :: Plone :: 4.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
