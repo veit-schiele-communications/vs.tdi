@@ -1,4 +1,5 @@
 ################################################################
+################################################################
 # vs.tdi
 # (C) 2012, Veit Schiele communications GmbH
 # Author: Andreas Jung, ZOPYX Ltd
@@ -19,10 +20,8 @@ class Folder(BrowserView):
         brains = self.context.getFolderContents(dict(portal_type=props.used_for_types, 
                                                      sort_on='getObjPositionInParent'))
         result = list()
-        for i, brain in enumerate(brains):
-
+        for brain in brains:
             # render HTML view of the content object and extract the body 
-            # fix this :-)
             obj = brain.getObject()
             layout = obj.getLayout()
             html = getattr(obj, layout)()
