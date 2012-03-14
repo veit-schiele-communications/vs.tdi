@@ -19,19 +19,9 @@ long_description = (
     + '\n' +
     read('CHANGES.txt')
     + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
-    + '\n' +
-    read('vs', 'tdi', 'README.txt')
-    + '\n' +
-    'Contributors\n'
-    '************\n'
-    + '\n' +
-    read('CONTRIBUTORS.txt')
-    + '\n' +
-    'Download\n'
-    '********\n')
+    '\n')
 
+file('/tmp/xx.html', 'w').write(long_description)
 tests_require = ['zope.testing']
 
 setup(name='vs.tdi',
