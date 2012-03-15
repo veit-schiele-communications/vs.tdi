@@ -9,6 +9,7 @@ from zope.component import adapts
 from Products.Archetypes import atapi
 from Products.ATContentTypes.interfaces import IATContentType, IATFile
 from Products.ATContentTypes import ATCTMessageFactory as _
+from Products.CMFCore.utils import getToolByName
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from archetypes.schemaextender.field import ExtensionField
 
@@ -34,6 +35,11 @@ class All(object):
         self.context = context
 
     def getFields(self):
-        return self.fields
+        qi = getToolByName(self.context, 'portal_quickinstaller')
+        installedProducts = qi.listInstalledProducts()
+        ids = [p['id'] for p in qi.listInstalledProducts()]
+        if 'vs.tdi' in ids:
+            return self.fields
+        return ()
 
 
