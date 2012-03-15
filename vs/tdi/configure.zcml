@@ -12,6 +12,7 @@
   <include package=".extenders" />
   <include package=".content" />
   <include package=".portlets" />
+  <i18n:registerTranslations directory="locales" />
   
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
