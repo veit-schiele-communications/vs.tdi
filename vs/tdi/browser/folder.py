@@ -16,9 +16,9 @@ class Folder(BrowserView):
     def tabObjs(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         props = getToolByName(self.context, 'portal_properties').vs_tdi
-
-        return self.context.getFolderContents(dict(portal_type=props.used_for_types, 
-                                                   sort_on='getObjPositionInParent'))
+        not_used_for_types = props.not_used_for_types
+        brains = self.context.getFolderContents(dict(sort_on='getObjPositionInParent'))
+        return [b for b in brains if not b.portal_type in not_used_for_types]
 
     def getTabInformation(self):
         """ Return information about contents to be tabified """

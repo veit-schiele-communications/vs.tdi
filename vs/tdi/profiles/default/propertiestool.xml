@@ -2,10 +2,9 @@
 <object name="portal_properties" meta_type="Plone Properties Tool">
  <object name="vs_tdi" meta_type="Plone Property Sheet">
   <property name="title">vs.tdi properties</property>
-  <property name="used_for_types" type="lines">
-   <element value="Document"/>
-   <element value="Event"/>
-   <element value="News Item"/>
+  <property name="not_used_for_types" type="lines">
+   <element value="Topic"/>
+   <element value="Folder"/>
   </property>
  </object>
 </object>
