@@ -37,7 +37,10 @@ class All(object):
 
     def getFields(self):
         qi = getToolByName(getSite(), 'portal_quickinstaller')
-        not_used_for_types = getSite().portal_properties.vs_tdi.not_used_for_types
+        try:
+            not_used_for_types = getSite().portal_properties.vs_tdi.not_used_for_types
+        except AttributeError:
+            not_used_for_types = ()
         installedProducts = qi.listInstalledProducts()
         ids = [p['id'] for p in qi.listInstalledProducts()]
         if self.context.portal_type in not_used_for_types:
