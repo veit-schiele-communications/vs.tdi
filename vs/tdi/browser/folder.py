@@ -66,7 +66,6 @@ class Folder(BrowserView):
                                content=html))
         return result
 
-
     def getHtml(self, uid):
         """ Return the HTML body of a references document by its UID """
         refcat = getToolByName(self.context, 'reference_catalog')
