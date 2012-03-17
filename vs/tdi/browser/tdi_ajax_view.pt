@@ -2,7 +2,7 @@
     <body >
         <div metal:fill-slot="content-core">
             <div class="tdi-view" tal:define="tabs view/getTabInformation">
-                <ul class="tabs">
+                <ul class="css-tabs">
                     <li tal:repeat="tab tabs ">
                         <a tal:attributes="href string:${context/absolute_url}/@@tdi_html?uid=${tab/uid}" tal:content="tab/tabText" />
                     </li>
@@ -16,7 +16,7 @@
 
             <script type="text/javascript">
                 $(document).ready(function() {
-                    $("ul.tabs").tabs("div.panes > div", {effect: 'ajax'});     
+                    $("ul.css-tabs").tabs("div.panes > div", {effect: 'ajax'});     
                 }); 
             </script>
         </div>

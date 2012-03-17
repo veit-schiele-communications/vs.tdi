@@ -2,7 +2,7 @@
     <body >
         <div metal:fill-slot="content-core">
             <div class="tdi-view" tal:define="tabs view/getTabs">
-                <ul class="tabs">
+                <ul class="css-tabs">
                     <li tal:repeat="tab tabs ">
                         <a tal:attributes="href string:#${tab/id}" tal:content="tab/tabText" />
                     </li>
@@ -18,7 +18,7 @@
 
             <script type="text/javascript">
                 $(document).ready(function() {
-                    $("ul.tabs").tabs("div.panes > div");     
+                    $("ul.css-tabs").tabs("div.panes > div");     
                 }); 
             </script>
         </div>
