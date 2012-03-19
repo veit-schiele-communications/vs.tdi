@@ -78,6 +78,8 @@ class Folder(BrowserView):
         selector = CSSSelector('#content')
         nodes = selector(root)
         if nodes:
+            node = nodes[0]
+            node.attrib['style'] = 'display: block'
             return lxml.html.tostring(nodes[0], encoding=unicode)
-        return ''
+        return 'FOO'
 
