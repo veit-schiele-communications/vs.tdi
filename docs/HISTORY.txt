@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.3.2 (19.03.2012)
+------------------
+- disabled AJAX view for now
+
 0.3.1 (19.03.2012)
 ------------------
 - AJAX switcher did not work properly
