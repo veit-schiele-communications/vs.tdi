@@ -80,6 +80,6 @@ class Folder(BrowserView):
         if nodes:
             node = nodes[0]
             node.attrib['style'] = 'display: block'
-            return lxml.html.tostring(nodes[0], encoding=unicode)
+            return lxml.html.tostring(node, encoding=unicode)
         return 'FOO'
 
