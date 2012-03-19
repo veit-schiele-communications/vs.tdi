@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.3.1 (19.03.2012)
+------------------
+- AJAX switcher did not work properly
+
 0.3.0 (17.03.2012)
 ------------------
 - switched to CSS tabs

@@ -16,7 +16,7 @@
 
             <script type="text/javascript">
                 $(document).ready(function() {
-                    $("ul.css-tabs").tabs("div.panes > div", {effect: 'ajax'});     
+                    $("ul.css-tabs").tabs("div.css-panes > div", {effect: 'ajax'});     
                 }); 
             </script>
         </div>
