@@ -9,7 +9,7 @@ The ``tdi_ajax_view`` performs an ajax request upon each tab change.
 
 Requirements
 ============
-- Plone 4
+- Plone 4.3 (vs.tdi 0.4 or higher)
 
 Installation
 ============
@@ -24,7 +24,7 @@ Authors
 =======
 
 | Andreas Jung
-| ZOPYX Ltd.
+| ZOPYX 
 | info@zopyx.com
 | www.zopyx.com
 |
