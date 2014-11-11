@@ -9,13 +9,15 @@ from zope.component import adapts
 from Products.Archetypes import atapi
 from Products.ATContentTypes.interfaces import IATContentType, IATFile
 from Products.ATContentTypes import ATCTMessageFactory as _
-from zope.app.component.hooks import getSite
-from Products.CMFCore.utils import getToolByName
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from archetypes.schemaextender.field import ExtensionField
 
+import plone.api
+
+
 class StringField(ExtensionField, atapi.StringField):
-    """ string field """
+    """ String field """
+
 
 class All(object):
     adapts(IATContentType)
@@ -36,9 +38,10 @@ class All(object):
         self.context = context
 
     def getFields(self):
-        qi = getToolByName(getSite(), 'portal_quickinstaller')
+        qi = plone.api.portal.get_tool('portal_quickinstaller')
         try:
-            not_used_for_types = getSite().portal_properties.vs_tdi.not_used_for_types
+            pp = plone.api.portal.get_tool('portal_properties')
+            not_used_for_types = pp.vs_tdi.not_used_for_types
         except AttributeError:
             not_used_for_types = ()
         installedProducts = qi.listInstalledProducts()

@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.3.2'
+version = '0.4.0-unreleased'
 
 long_description = (
     read('README.txt')
@@ -48,6 +48,7 @@ setup(name='vs.tdi',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
+                        'plone.api',
                         'lxml',
                         # -*- Extra requirements: -*-
                         ],
