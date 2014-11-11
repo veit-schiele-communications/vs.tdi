@@ -6,16 +6,16 @@
 ################################################################
 
 from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
 import lxml.html
 from lxml.cssselect import CSSSelector
+import plone.api
 
 class Folder(BrowserView):
 
     @property
     def tabObjs(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
-        props = getToolByName(self.context, 'portal_properties').vs_tdi
+        catalog = plone.api.portal.get_tool('portal_catalog')
+        props = plone.api.portal.get_tool('portal_properties').vs_tdi
         not_used_for_types = props.not_used_for_types
         brains = self.context.getFolderContents(dict(sort_on='getObjPositionInParent'))
         return [b for b in brains if not b.portal_type in not_used_for_types]
@@ -68,7 +68,7 @@ class Folder(BrowserView):
 
     def getHtml(self, uid):
         """ Return the HTML body of a references document by its UID """
-        refcat = getToolByName(self.context, 'reference_catalog')
+        refcat = plone.api.portal.get_tool('reference_catalog')
         obj = refcat.lookupObject(uid)
         layout = obj.getLayout()
         html = getattr(obj, layout)()
