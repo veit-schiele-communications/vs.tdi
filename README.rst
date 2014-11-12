@@ -20,6 +20,18 @@ Licence
 =======
 vs.tdi is published under the GNU Public Licence V2 (GPL 2)
 
+Repository
+==========
+- https://github.com/veit-schiele-communications/vs.tdi
+
+Bugtracker
+==========
+- https://github.com/veit-schiele-communications/vs.tdi/issues^
+
+Continuous integration @Travis
+==============================
+- https://travis-ci.org/veit-schiele-communications/vs.tdi/builds/
+
 Authors
 =======
 
